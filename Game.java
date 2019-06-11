@@ -3,7 +3,12 @@ public class Game
 {
     private int numStones, stonesGoal1, stonesGoal2;
     private Integer[] board = new Integer[14];
-
+    
+    public Game()
+    {
+        
+    }
+    
     public boolean gameIsOver()
     {
         int eachSpace, sumOfSpaces = 0;
