@@ -1,12 +1,14 @@
 
 public class Game
 {
+    private Player one, two;
     private int numStones, stonesGoal1, stonesGoal2;
     private Integer[] board = new Integer[14];
     
-    public Game()
+    public Game(Player one, Player two)
     {
-        
+        this.one = one;
+        this.two = two;
     }
     
     public boolean gameIsOver()
@@ -46,7 +48,7 @@ public class Game
                 return 2; 
             }
             else
-                System.out.println("It’s a tie!");
+                System.out.println("Itï¿½s a tie!");
         }
         return 0;
     }

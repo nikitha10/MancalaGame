@@ -10,9 +10,12 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 public class MainMenu{
 
+    private JFrame frame;
+    private JPanel panel;
+
     public MainMenu(){
-        JFrame frame = new JFrame("Start Menu");
-        JPanel panel = new JPanel();
+        frame = new JFrame("Start Menu");
+        panel = new JPanel();
         panel.setLayout(new FlowLayout());
         JButton onePlayerButton = new JButton("One Player");
         JButton twoPlayerButton = new JButton("Two Player");
@@ -20,7 +23,13 @@ public class MainMenu{
         onePlayerButton.addMouseListener(new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent e){
-                onePlayerButton.setText("Worked");
+                frame.setVisible(false);
+                frame.dispose();
+                if (Math.random() > 0.5){
+                    new GameMenu(new Game(new HumanPlayer(), new RandomPlayer()));
+                } else{
+                    new GameMenu(new Game(new RandomPlayer(), new HumanPlayer()));
+                }
             }
             @Override
             public void mouseDragged(MouseEvent e){
@@ -54,7 +63,9 @@ public class MainMenu{
         twoPlayerButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e){
-                onePlayerButton.setText("Worked");
+                frame.setVisible(false);
+                frame.dispose();
+                new GameMenu(new Game(new HumanPlayer(), new HumanPlayer()));
             }
             @Override
             public void mouseDragged(MouseEvent e){
@@ -88,7 +99,7 @@ public class MainMenu{
         exitButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e){
-                onePlayerButton.setText("Worked");
+                System.exit(0);
             }
             @Override
             public void mouseDragged(MouseEvent e){
@@ -125,7 +136,8 @@ public class MainMenu{
         frame.add(panel);
         frame.setSize(200, 300);
         frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
         frame.setVisible(true);
     }
 }

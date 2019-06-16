@@ -7,11 +7,5 @@
  */
 public abstract class Player
 {
-    private int x;
-    
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+    public abstract int getMove();
 }
