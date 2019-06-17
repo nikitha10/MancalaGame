@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.sun.org.glassfish.gmbal.ManagedAttribute;
+//import com.sun.org.glassfish.gmbal.ManagedAttribute;
 
 import javax.swing.Box;
 import javax.swing.JComponent;
@@ -29,37 +29,45 @@ public class GameMenu{
         frame.getContentPane().getInsets().set(0, 0, 0, 0);
         frame.setSize(new Dimension(1600, 900));
         this.game = game;
-
-        JPanel mancalaFrame = new JPanel(){
+      
+        JPanel mainPanel = new JPanel(); //CONTAINS BOTH PANELS WITH NULL LAYOUT
+        mainPanel.setLayout(null);
+        
+        JPanel mancalaPanel = new JPanel()/*{
             @Override
             public void paint(Graphics g){
-                g.setColor(new Color(199, 219, 226));
-                g.fillRect(300, 200, 1000, 500);
+                //g.setColor(new Color(199, 219, 226));
+                //g.fillRect(300, 200, 1000, 500);
             }
-        };
-        frame.add(mancalaFrame);
-        mancalaFrame.setSize(1000, 500);
-        mancalaFrame.setBounds(300, 200, 1000, 500);
-        //mancalaFrame.setLayout(null);
-        mancalaFrame.setOpaque(true);
-        mancalaFrame.repaint();
-
-        JPanel playerTwoGoal = new JPanel(){
+        }*/;
+        mancalaPanel.setBackground(new Color(199, 219, 226));
+        //mancalaPanel.setSize(1000, 500);
+        mancalaPanel.setBounds(300, 200, 1000, 500);
+        mancalaPanel.setLayout(null);
+        mancalaPanel.setOpaque(true);
+        mancalaPanel.repaint();
+        
+        JPanel playerTwoGoal = new JPanel()/*{
             @Override
             public void paint(Graphics g){
                 g.setColor(new Color(198, 25, 25));
                 g.fillRect(0, 0, 100, 250);
             }
-        };
-        mancalaFrame.add(playerTwoGoal);
+        }*/;
+        playerTwoGoal.setBackground(new Color(198, 25, 25));
         playerTwoGoal.setBounds(0, 0, 100, 250);
         playerTwoGoal.setOpaque(true);
         playerTwoGoal.repaint();
-        playerTwoGoal.setOpaque(true);
-
+        
+        mainPanel.add(mancalaPanel);
+        //mainPanel.add(playerTwoGoal); //ALTERNATLEY COMMENT THIS OUT
+        mancalaPanel.add(playerTwoGoal); //AND UNCOMMENT THIS AND SEE
+                                        //CHANGE IN BEHAVIOR
+        
+        
+        frame.add(mainPanel);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         frame.setVisible(true);
     }
 }
