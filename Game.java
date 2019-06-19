@@ -62,7 +62,7 @@ public class Game
 
         if (board[lastIndex] == 1) //return false and change player
         {
-            if (currentPlayer.equals(one)
+            if (currentPlayer.equals(one))
             {
                 currentPlayer = two; 
             }
@@ -76,6 +76,7 @@ public class Game
         {
             takeTurn(lastIndex); 
         }
+        return false; 
     }
 
     public void resetGame()

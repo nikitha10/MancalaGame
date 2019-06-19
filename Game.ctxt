@@ -1,7 +1,15 @@
 #BlueJ class context
 comment0.target=Game
-comment1.params=
-comment1.target=boolean\ gameIsOver()
+comment1.params=one\ two
+comment1.target=Game(Player,\ Player)
 comment2.params=
-comment2.target=int\ determineWinner()
-numComments=3
+comment2.target=void\ possibleMoves()
+comment3.params=firstPile
+comment3.target=boolean\ takeTurn(int)
+comment4.params=
+comment4.target=void\ resetGame()
+comment5.params=
+comment5.target=boolean\ gameIsOver()
+comment6.params=
+comment6.target=int\ determineWinner()
+numComments=7
